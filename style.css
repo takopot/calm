@@ -1,0 +1,286 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #f6f1eb;
+  color: #3b2f2f;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* HEADER */
+header {
+  background: #5a3e2b;
+  padding: 15px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav h1 {
+  color: #fff;
+  margin: 0;
+}
+
+nav a {
+  color: #fff;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a:hover {
+  color: #f3d5b5;
+}
+
+/* PAGES */
+.page {
+  display: none;
+  padding: 40px 20px;
+  animation: fade 0.6s ease;
+  flex: 1;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* HERO */
+.hero {
+  height: 80vh;
+  background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93') center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+}
+
+.hero button {
+  background: #8b5e3c;
+  border: none;
+  padding: 14px 30px;
+  color: #fff;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+/* MENU CATEGORY PAGE */
+.menu-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.cat-card {
+  background: #fff;
+  padding: 40px 20px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cat-card:hover {
+  transform: translateY(-12px) scale(1.03);
+  background: #f3e6dc;
+}
+
+.cat-card h3 {
+  margin: 0;
+}
+
+/* MENU ITEMS */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.card {
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.card select,
+.card input {
+  margin: 8px;
+  padding: 6px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.quantity input {
+  width: 40px;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.quantity button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: #5a3e2b;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quantity button:hover {
+  background: #3e2723;
+}
+
+.card button {
+  margin: 10px 0 15px;
+  background: #5a3e2b;
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.card button:hover {
+  transform: scale(1.05);
+  opacity: 0.95;
+}
+
+/* CART & RECEIPT */
+#cart,
+#receipt,
+#thankyou {
+  max-width: 500px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  display: none;
+  animation: pop 0.4s ease;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.cart-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.cart-actions button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.clear {
+  background: #d2691e;
+}
+
+.clear:hover {
+  background: #b85c1e;
+}
+
+.order {
+  background: #5a3e2b;
+}
+
+.order:hover {
+  background: #3e2723;
+}
+
+/* FOOTER */
+footer {
+  background: #5a3e2b;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-top: auto;
+  position: relative;
+}
