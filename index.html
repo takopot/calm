@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calm Coffee</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<header>
+  <nav>
+    <h1>Calm Coffee</h1>
+    <div>
+      <a onclick="showPage('home')">Home</a>
+      <a onclick="showPage('our-story')">Our Story</a>
+      <a onclick="showPage('menu')">Menu</a>
+      <a onclick="showPage('contact')">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<section id="home" class="page active">
+  <div class="hero">
+    <div>
+      <h2>Find Your Calm in Every Cup</h2>
+      <button onclick="showPage('menu')">Order Now</button>
+    </div>
+  </div>
+</section>
+
+<!-- OUR STORY -->
+<section id="our-story" class="page">
+  <h2 style="text-align:center; margin-bottom:20px;">Our Story</h2>
+  <div style="max-width:900px; margin:auto; display:flex; flex-wrap:wrap; align-items:center; gap:30px; animation:fade .6s ease;">
+    
+    <!-- Text -->
+    <div style="flex:1; min-width:250px;">
+      <p style="font-size:1.1rem; line-height:1.6; color:#3b2f2f;">
+        Calm Coffee started with a simple idea: to create a space where everyone can enjoy a perfect cup of coffee, 
+        unwind, and connect. From sourcing the finest beans to handcrafting every drink, our passion is brewing 
+        happiness in every cup. Whether it's a quiet morning or a cozy afternoon with friends, Calm Coffee is here 
+        to make every sip special.
+      </p>
+      <p style="font-size:1.1rem; line-height:1.6; color:#3b2f2f;">
+        Join us in our journey of aroma, flavor, and warmth. At Calm Coffee, every cup tells a story, and we can't 
+        wait to share it with you.
+      </p>
+    </div>
+
+    <!-- Image -->
+    <div style="flex:1; min-width:250px; text-align:center;">
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" 
+           alt="Calm Coffee Story" 
+           style="width:100%; border-radius:15px; object-fit:cover;">
+    </div>
+
+  </div>
+</section>
+
+<section id="menu" class="page">
+  <h2 style="text-align:center">Our Menu</h2>
+  <div class="menu-categories">
+    <div class="cat-card" onclick="openCategory('hot')"><h3>☕ Hot Coffee</h3></div>
+    <div class="cat-card" onclick="openCategory('cold')"><h3>🧊 Cold Drinks</h3></div>
+    <div class="cat-card" onclick="openCategory('pastries')"><h3>🥐 Pastries</h3></div>
+    <div class="cat-card" onclick="openCategory('cakes')"><h3>🍰 Cakes</h3></div>
+  </div>
+</section>
+
+<!-- HOT COFFEE -->
+<section id="hot" class="page">
+  <h2 style="text-align:center">Hot Coffee</h2>
+  <div class="menu-grid">
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d8/Caffe_Latte_at_Pulse_Cafe.jpg" alt="Latte">
+      <h4>Latte</h4>
+      <select class="size">
+        <option value="160">Small ₱160</option>
+        <option value="180">Medium ₱180</option>
+        <option value="200">Large ₱200</option>
+      </select>
+      <div class="quantity">
+        <button onclick="qty(this,-1)">-</button>
+        <input value="1">
+        <button onclick="qty(this,1)">+</button>
+      </div>
+      <button onclick="addToCart(this,'Latte')">Add</button>
+    </div>
+
+    <div class="card">
+      <img src="https://majestycoffee.com/cdn/shop/articles/americano_misto.jpg?v=1684064972" alt="Americano">
+      <h4>Americano</h4>
+      <select class="size">
+        <option value="140">Small ₱140</option>
+        <option value="160">Medium ₱160</option>
+        <option value="180">Large ₱180</option>
+      </select>
+      <div class="quantity">
+        <button onclick="qty(this,-1)">-</button>
+        <input value="1">
+        <button onclick="qty(this,1)">+</button>
+      </div>
+      <button onclick="addToCart(this,'Americano')">Add</button>
+    </div>
+
+    <div class="card">
+      <img src="https://www.thespruceeats.com/thmb/oUxhx54zsjVWfPlrgedJU0MZ-y0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/how-to-make-cappuccinos-766116-hero-01-a754d567739b4ee0b209305138ecb996.jpg" alt="Cappuccino">
+      <h4>Cappuccino</h4>
+      <select class="size">
+        <option value="170">Small ₱170</option>
+        <option value="190">Medium ₱190</option>
+        <option value="210">Large ₱210</option>
+      </select>
+      <div class="quantity">
+        <button onclick="qty(this,-1)">-</button>
+        <input value="1">
+        <button onclick="qty(this,1)">+</button>
+      </div>
+      <button onclick="addToCart(this,'Cappuccino')">Add</button>
+    </div>
+
+    <div class="card">
+      <img src="https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/the_perfect_mocha_coffee_29100_16x9.jpg" alt="Mocha">
+      <h4>Mocha</h4>
+      <select class="size">
+        <option value="180">Small ₱180</option>
+        <option value="200">Medium ₱200</option>
+        <option value="220">Large ₱220</option>
+      </select>
+      <div class="quantity">
+        <button onclick="qty(this,-1)">-</button>
+        <input value="1">
+        <button onclick="qty(this,1)">+</button>
+      </div>
+      <button onclick="addToCart(this,'Mocha')">Add</button>
+    </div>
+
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7PMFxLGbQ5kYCYnRNoFSCbemc70Whl46RuoSXhnEyIII3Axjuy4gfxcg&s=10" alt="Flat White">
+      <h4>Flat White</h4>
+      <select class="size">
+        <option value="150">Small ₱150</option>
+        <option value="170">Medium ₱170</option>
+        <option value="190">Large ₱190</option>
+      </select>
+      <div class="quantity">
+        <button onclick="qty(this,-1)">-</button>
+        <input value="1">
+        <button onclick="qty(this,1)">+</button>
+      </div>
+      <button onclick="addToCart(this,'Flat White')">Add</button>
+    </div>
+  </div>
+</section>
+
+<!-- COLD DRINKS -->
+<section id="cold" class="page">
+  <h2 style="text-align:center">Cold Drinks</h2>
+  <div class="menu-grid">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1517487881594-2787fef5ebf7" alt="Iced Latte">
+      <h4>Iced Latte</h4>
+      <select class="size">
+        <option value="170">Small ₱170</option>
+        <option value="190">Medium ₱190</option>
+        <option value="210">Large ₱210</option>
+      </select>
+      <div class="quantity">
+        <button onclick="qty(this,-1)">-</button>
+        <input value="1">
+        <button onclick="qty(this,1)">+</button>
+      </div>
+      <button onclick="addToCart(this,'Iced Latte')">Add</button>
+    </div>
+
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeBelHVd_0y8gJTfOJdDt-UDm6_t51jXsXOhXWGC29WTlKR3jra5ja69c&s=10" alt="Frappe">
+      <h4>Frappe</h4>
+      <select class="size">
+        <option value="180">Small ₱180</option>
+        <option value="200">Medium ₱200</option>
+        <option value="220">Large ₱220</option>
+      </select>
+      <div class="quantity">
+        <button onclick="qty(this,-1)">-</button>
+        <input value="1">
+        <button onclick="qty(this,1)">+</button>
+      </div>
+      <button onclick="addToCart(this,'Frappe')">Add</button>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772" alt="Iced Americano">
+      <h4>Iced Americano</h4>
+      <select class="size">
+        <option value="150">Small ₱150</option>
+        <option value="170">Medium ₱170</option>
+        <option value="190">Large ₱190</option>
+      </select>
+      <div class="quantity">
+        <button onclick="qty(this,-1)">-</button>
+        <input value="1">
+        <button onclick="qty(this,1)">+</button>
+      </div>
+      <button onclick="addToCart(this,'Iced Americano')">Add</button>
+    </div>
+
+    <div class="card">
+      <img src="https://media.istockphoto.com/id/1181926259/photo/caramel-frappuccino-with-wipped-cream-on-marble-table.jpg?s=612x612&w=0&k=20&c=isvWjsRZa1gf9NBlOEFd-QhJG7AD0lem8WCqhfWWrys=" alt="Iced Mocha">
+      <h4>Iced Mocha</h4>
+      <select class="size">
+        <option value="170">Small ₱170</option>
+        <option value="190">Medium ₱190</option>
+        <option value="210">Large ₱210</option>
+      </select>
+      <div class="quantity">
+        <button onclick="qty(this,-1)">-</button>
+        <input value="1">
+        <button onclick="qty(this,1)">+</button>
+      </div>
+      <button onclick="addToCart(this,'Iced Mocha')">Add</button>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735" alt="Cold Brew">
+      <h4>Cold Brew</h4>
+      <select class="size">
+        <option value="160">Small ₱160</option>
+        <option value="180">Medium ₱180</option>
+        <option value="200">Large ₱200</option>
+      </select>
+      <div class="quantity">
+        <button onclick="qty(this,-1)">-</button>
+        <input value="1">
+        <button onclick="qty(this,1)">+</button>
+      </div>
+      <button onclick="addToCart(this,'Cold Brew')">Add</button>
+    </div>
+  </div>
+</section>
+
+<!-- PASTRIES -->
+<section id="pastries" class="page">
+  <h2 style="text-align:center">Freshly Baked Pastries</h2>
+  <div class="menu-grid">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a" alt="Croissant">
+      <h4>Croissant</h4>
+      <select class="size">
+        <option value="80">Regular ₱80</option>
+        <option value="100">Large ₱100</option>
+      </select>
+      <div class="quantity">
+        <button onclick="qty(this,-1)">-</button>
+        <input value="1">
+        <button onclick="qty(this,1)">+</button>
+      </div>
+      <button onclick="addToCart(this,'Croissant')">Add</button>
+    </div>
+
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_vmF0YApAVSzzkYNt4ZTH-vnAHzHsq1qS4aAkf4jvdar1qcEWY6098g&s=10" alt="Blueberry Muffin">
+      <h4>Blueberry Muffin</h4>
+      <select class="size">
+        <option value="70">Regular ₱70</option>
+        <option value="90">Large ₱90</option>
+      </select>
+      <div class="quantity">
+        <button onclick="qty(this,-1)">-</button>
+        <input value="1">
+        <button onclick="qty(this,1)">+</button>
+      </div>
+      <button onclick="addToCart(this,'Blueberry Muffin')">Add</button>
+    </div>
+
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtWh_D49SoAg1sTQ8iWOudMxy6HljQBemAZvXfH3jZqfz70hAlDhAw0bPu&s=10" alt="Pain au Chocolat">
+      <h4>Pain au Chocolat</h4>
+      <select class="size">
+        <option value="85">Regular ₱85</option>
+        <option value="105">Large ₱105</option>
+      </select>
+      <div class="quantity">
+        <button onclick="qty(this,-1)">-</button>
+        <input value="1">
+        <button onclick="qty(this,1)">+</button>
+      </div>
+      <button onclick="addToCart(this,'Pain au Chocolat')">Add</button>
+    </div>
+
+    <div class="card">
+      <img src="https://www.foodandwine.com/thmb/dCBqp4GlxvlH0YoWU-KbxmRynFU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/miso-caramel-apple-danish-FT-RECIPE0920-005dcb017b23462383ea77c4549b1a44.jpg" alt="Apple Danish">
+      <h4>Apple Danish</h4>
+      <select class="size">
+        <option value="75">Regular ₱75</option>
+        <option value="95">Large ₱95</option>
+      </select>
+      <div class="quantity">
+        <button onclick="qty(this,-1)">-</button>
+        <input value="1">
+        <button onclick="qty(this,1)">+</button>
+      </div>
+      <button onclick="addToCart(this,'Apple Danish')">Add</button>
+    </div>
+
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRAnElee5v-guVAc8MNIlHjITb9EV81HssHbLtAhnbD7A_hjhTNaZKZ6Qy&s=10" alt="Cinnamon Roll">
+      <h4>Cinnamon Roll</h4>
+      <select class="size">
+        <option value="65">Regular ₱65</option>
+        <option value="85">Large ₱85</option>
+      </select>
+      <div class="quantity">
+        <button onclick="qty(this,-1)">-</button>
+        <input value="1">
+        <button onclick="qty(this,1)">+</button>
+      </div>
+      <button onclick="addToCart(this,'Cinnamon Roll')">Add</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- CAKES -->
+<section id="cakes" class="page">
+  <h2 style="text-align:center">Our Signature Cakes</h2>
+  <div class="menu-grid">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587" alt="Chocolate Cake">
+      <h4>Chocolate Cake</h4>
+      <select class="size">
+        <option value="150">Slice ₱150</option>
+        <option value="850">Whole ₱850</option>
+      </select>
+      <div class="quantity">
+        <button onclick="qty(this,-1)">-</button>
+        <input value="1">
+        <button onclick="qty(this,1)">+</button>
+      </div>
+      <button onclick="addToCart(this,'Chocolate Cake')">Add</button>
+    </div>
+
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW1S0eQmjF2NWTmNRAoqeBJw6FagiIDHnrnepdmjet_w&s=10" alt="Cheesecake">
+      <h4>Cheesecake</h4>
+      <select class="size">
+        <option value="160">Slice ₱160</option>
+        <option value="900">Whole ₱900</option>
+      </select>
+      <div class="quantity">
+        <button onclick="qty(this,-1)">-</button>
+        <input value="1">
+        <button onclick="qty(this,1)">+</button>
+      </div>
+      <button onclick="addToCart(this,'Cheesecake')">Add</button>
+    </div>
+
+    <div class="card">
+      <img src="https://www.allrecipes.com/thmb/_z5iBQrAyF3vfvMSX3PiSuXxfWc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ALR-276078-homemade-red-velvet-cake-with-cream-cheese-frosting-VAT-2x1-6fe0aa8c5a2a4904b0b2ff64a93345a2.jpg" alt="Red Velvet">
+      <h4>Red Velvet</h4>
+      <select class="size">
+        <option value="170">Slice ₱170</option>
+        <option value="950">Whole ₱950</option>
+      </select>
+      <div class="quantity">
+        <button onclick="qty(this,-1)">-</button>
+        <input value="1">
+        <button onclick="qty(this,1)">+</button>
+      </div>
+      <button onclick="addToCart(this,'Red Velvet')">Add</button>
+    </div>
+
+    <div class="card">
+      <img src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2007/2/16/0/ry0401_carrotcake.jpg.rend.hgtvcom.1280.720.suffix/1552488933139.webp" alt="Carrot Cake">
+      <h4>Carrot Cake</h4>
+      <select class="size">
+        <option value="140">Slice ₱140</option>
+        <option value="800">Whole ₱800</option>
+      </select>
+      <div class="quantity">
+        <button onclick="qty(this,-1)">-</button>
+        <input value="1">
+        <button onclick="qty(this,1)">+</button>
+      </div>
+      <button onclick="addToCart(this,'Carrot Cake')">Add</button>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c" alt="Black Forest">
+      <h4>Black Forest</h4>
+      <select class="size">
+        <option value="180">Slice ₱180</option>
+        <option value="1000">Whole ₱1000</option>
+      </select>
+      <div class="quantity">
+        <button onclick="qty(this,-1)">-</button>
+        <input value="1">
+        <button onclick="qty(this,1)">+</button>
+      </div>
+      <button onclick="addToCart(this,'Black Forest')">Add</button>
+    </div>
+
+  </div>
+</section>
+
+<div id="cart">
+  <h3>Order Summary</h3>
+  <ul id="items"></ul>
+  <p>Total: ₱<span id="total">0</span></p>
+  <label>Payment Mode</label>
+  <select id="payment">
+    <option>Cash</option>
+    <option>GCash</option>
+    <option>Maya</option>
+  </select>
+  <div class="cart-actions">
+    <button class="clear" onclick="clearCart()">Clear</button>
+    <button class="order" onclick="checkout()">Checkout</button>
+  </div>
+</div>
+
+<div id="receipt"></div>
+<div id="thankyou"><h2>☕ Thank You for Ordering!</h2><p>Your receipt is shown above.</p></div>
+
+<section id="contact" class="page">
+  <h2 style="text-align:center">Contact Us</h2>
+  <div style="max-width:700px; margin:auto; text-align:center; line-height:1.6;">
+    <p>📍 123 Calm Street, Las Pi City, Philippines</p>
+    <p>📞 +63 912 345 6789</p>
+    <p>✉️ info@calmcoffee.com</p>
+    <p>📱 Instagram: @calmcoffee | Facebook: Calm Coffee</p>
+  </div>
+</section>
+
+<footer>© 2026 Calm Coffee</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
